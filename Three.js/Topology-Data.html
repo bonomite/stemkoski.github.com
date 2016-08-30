@@ -24,12 +24,12 @@
 <link rel=stylesheet href="css/jquery-ui.css" />
 <link rel=stylesheet href="css/info.css"/>
 <script src="js/info.js"></script>
-<div id="infoButton"></div>
+<!-- <div id="infoButton"></div> -->
 <div id="infoBox" title="Demo Information">
 This three.js demo is part of a collection at
 <a href="http://stemkoski.github.io/Three.js/">http://stemkoski.github.io/Three.js/</a>
 </div>
-<!-- ------------------------------------------------------------ -->
+<!-- -->
 
 <div id="ThreeJS" style="position: absolute; left:0px; top:0px"></div>
 <script>
@@ -75,27 +75,31 @@ function init()
 	// CONTROLS
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
 	// STATS
+	/*
 	stats = new Stats();
 	stats.domElement.style.position = 'absolute';
 	stats.domElement.style.bottom = '0px';
 	stats.domElement.style.zIndex = 100;
 	container.appendChild( stats.domElement );
+	*/
 	// LIGHT
 	var light = new THREE.PointLight(0xffffff);
 	light.position.set(0,250,0);
 	scene.add(light);
 	
 	// SKYBOX/FOG
+	/*
 	var skyBoxGeometry = new THREE.CubeGeometry( 10000, 10000, 10000 );
 	var skyBoxMaterial = new THREE.MeshBasicMaterial( { color: 0x9999ff, side: THREE.BackSide } );
 	var skyBox = new THREE.Mesh( skyBoxGeometry, skyBoxMaterial );
 	scene.add(skyBox);
+	*/
 	
 	////////////
 	// CUSTOM //
 	////////////
 	
-	var geometry = new THREE.SphereGeometry( 100, 4, 3 );
+	var geometry = new THREE.SphereGeometry( 100, 6, 3 );
 	geometry.mergeVertices();
 	geometry.computeCentroids();
 	var material = new THREE.MeshNormalMaterial();
@@ -108,7 +112,7 @@ function init()
 	topo.computeCenters();
 	
 	// draw labels.
-	
+	/*
 	for (var i = 0; i < topo.vertex.length; i++)
 	{
 		var spritey = makeTextSprite( " " + i + " ", { fontsize: 32, backgroundColor: {r:255, g:100, b:100, a:1} } );
@@ -122,7 +126,7 @@ function init()
 		spritey.position = topo.edge[i].center.clone().multiplyScalar(1.1);
 		scene.add( spritey );
 	}
-	
+	*/
 	for (var i = 0; i < topo.face.length; i++)
 	{
 		var spritey = makeTextSprite( " " + i + " ", { fontsize: 32, backgroundColor: {r:100, g:100, b:255, a:1} } );
@@ -219,7 +223,7 @@ function animate()
 function update()
 {
 	controls.update();
-	stats.update();
+	//stats.update();
 }
 
 function render() 
